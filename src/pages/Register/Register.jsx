@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import Social from "../../components/Social/Social";
 
 const Register = () => {
   const { createUser } = useAuth();
@@ -29,9 +30,10 @@ const Register = () => {
       <h1 className="text-center text-5xl text-purple-700 my-5 font-bold">
         Sign Up Now
       </h1>
-      <form
+     <div className="lg:w-2/5 mx-auto ">
+     <form
         action=""
-        className=" lg:w-2/5 mx-auto p-8 card bg-slate-100 space-y-4"
+        className="  p-8 card bg-slate-100 space-y-4"
         onSubmit={handleRegisterUser}
       >
         <div className="form-control w-full ">
@@ -96,6 +98,8 @@ const Register = () => {
           </Link>
         </p>
       </form>
+      <Social />
+     </div>
     </div>
   );
 };
