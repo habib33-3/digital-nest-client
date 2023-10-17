@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { createUser } = useAuth();
+
   const handleRegisterUser = (e) => {
     e.preventDefault();
 
@@ -9,6 +13,15 @@ const Register = () => {
     const picture = form.picture.value;
     const email = form.email.value;
     const password = form.password.value;
+
+    createUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Congrats, You are registered");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -49,6 +62,7 @@ const Register = () => {
           </label>
           <input
             type="email"
+            name="email"
             placeholder="Your Email"
             className="input input-bordered w-full "
           />
@@ -61,6 +75,7 @@ const Register = () => {
           </label>
           <input
             type="password"
+            name="password"
             placeholder="Your Password"
             className="input input-bordered w-full "
           />

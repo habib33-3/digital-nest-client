@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.API_KEY,
-  authDomain: import.meta.env.AUTH_DOMAIN,
-  projectId: import.meta.env.PROJECT_ID,
-  storageBucket: import.meta.env.STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
-  appId: import.meta.env.APP_ID,
+  apiKey: "AIzaSyB0261Dc3GD702nKPGB2imchhIlnkpi5OE",
+  authDomain: "digital-nest-7d4fd.firebaseapp.com",
+  projectId: "digital-nest-7d4fd",
+  storageBucket: "digital-nest-7d4fd.appspot.com",
+  messagingSenderId: "919172512282",
+  appId: "1:919172512282:web:f9fd1688cc2a10f6d02fa3",
 };
 
 // Initialize Firebase
