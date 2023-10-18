@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { createUser } = useAuth();
+  const { createUser, updateInfo } = useAuth();
 
   const handleRegisterUser = (e) => {
     e.preventDefault();
@@ -26,8 +26,12 @@ const Register = () => {
     }
 
     createUser(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        updateInfo(name, picture)
+          .then(() => {})
+          .catch((err) => {
+            console.log(err.message);
+          });
         toast.success("Congrats, You are registered");
       })
       .catch((err) => {

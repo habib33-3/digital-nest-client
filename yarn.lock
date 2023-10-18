@@ -218,6 +218,11 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@coreui/react@^5.0.0-alpha.3":
+  version "5.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@coreui/react/-/react-5.0.0-alpha.3.tgz#c74d6747a12603130423fdf811762d0d6e3307aa"
+  integrity sha512-UiIZxSkQaWc/uwUmAqFOKTIjyfQY/KdK4EQIipy0blw/lxJAxVLzjBN215QO6b/hFrZzcYgLfJm4p7Rv6p6F5g==
+
 "@esbuild/android-arm64@0.18.20":
   version "0.18.20"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.18.20.tgz#984b4f9c8d0377443cc2dfcef266d02244593622"
