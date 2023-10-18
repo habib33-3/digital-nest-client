@@ -1,6 +1,7 @@
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import PropTypes from "prop-types";
@@ -24,7 +25,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const userInfo = { loading, createUser, googleLogin };
+  const logInUser = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const userInfo = { loading, createUser, googleLogin, logInUser };
 
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>

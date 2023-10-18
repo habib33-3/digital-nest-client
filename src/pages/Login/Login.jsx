@@ -1,34 +1,26 @@
 import { Link } from "react-router-dom";
+import Social from "../../components/Social/Social";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
-import Social from "../../components/Social/Social";
-import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const Register = () => {
+const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { createUser } = useAuth();
+  const { logInUser } = useAuth();
 
-  const handleRegisterUser = (e) => {
+  const handleLoginUser = (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.name.value;
-    const picture = form.picture.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{6,}$/.test(password)) {
-      return toast.error(
-        "Invalid password. It should be at least 6 characters long, contain at least one special character, and at least one capital letter."
-      );
-    }
-
-    createUser(email, password)
+    logInUser(email, password)
       .then((res) => {
         console.log(res.user);
-        toast.success("Congrats, You are registered");
+        toast.success("Congrats,you are logged in");
       })
       .catch((err) => {
         toast.error(err.message);
@@ -38,40 +30,14 @@ const Register = () => {
   return (
     <div className="mb-10 bg-gray-100 min-h-screen p-10">
       <h1 className="text-center text-5xl text-purple-700 my-5 font-bold">
-        Sign Up Now
+        Sign In Now
       </h1>
       <div className="lg:w-2/5 mx-auto ">
         <form
           action=""
-          className="p-8 card bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 shadow-xl mb-0.5 space-y-4"
-          onSubmit={handleRegisterUser}
+          className="  p-8 card bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 shadow-xl mb-0.5 space-y-4"
+          onSubmit={handleLoginUser}
         >
-          <div className="form-control w-full ">
-            <label className="label">
-              <span className="text-xl font-medium text-stone-700 ">Name</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Your Name"
-              name="name"
-              className="input input-bordered w-full "
-              required
-            />
-          </div>
-          <div className="form-control w-full ">
-            <label className="label">
-              <span className="text-xl font-medium text-stone-700 ">
-                Picture
-              </span>
-            </label>
-            <input
-              type="text"
-              placeholder="Enter Photo URL"
-              name="picture"
-              className="input input-bordered w-full "
-              required
-            />
-          </div>
           <div className="form-control w-full ">
             <label className="label">
               <span className="text-xl font-medium text-stone-700 ">Email</span>
@@ -109,15 +75,15 @@ const Register = () => {
             className="btn btn-warning"
             type="submit"
           >
-            Register
+            Login
           </button>
           <p className="text-xl font-medium text-stone-700">
-            Already Have an account. Please
+            Don{"'"}t have an account,please
             <Link
               className="text-blue-600 font-bold  mx-2"
-              to="/login"
+              to="/register"
             >
-              Login
+              register
             </Link>
           </p>
         </form>
@@ -127,4 +93,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
