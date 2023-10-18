@@ -2,10 +2,9 @@ import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
-    <div>
-     <Footer/>
+    <div className="flex items-baseline justify-center">
      
-    </div>
+  </div>
   );
 };
 

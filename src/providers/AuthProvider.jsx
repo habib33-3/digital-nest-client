@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import PropTypes from "prop-types";
@@ -48,7 +49,7 @@ const AuthProvider = ({ children }) => {
   // Observe if user logged in or not
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
-      console.log("current",user);
+      console.log("current", user);
       setLoading(false);
       setUser(user);
     });
@@ -56,13 +57,20 @@ const AuthProvider = ({ children }) => {
     return () => unSubscribe();
   }, []);
 
+  // Logout
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
+
   const userInfo = {
     loading,
     createUser,
     googleLogin,
     logInUser,
     updateInfo,
-    user
+    user,
+    logOut,
   };
 
   return (

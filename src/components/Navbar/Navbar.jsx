@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { TfiMenu } from "react-icons/tfi";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
 
   const navLinks = (
     <>
@@ -33,6 +34,10 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const handleLogOut = () => {
+    logOut().then(toast.success("You are logged out"));
+  };
 
   return (
     <nav className="navbar max-w-7xl mx-auto mt-2 bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl shadow-lg py-3 px-2">
@@ -65,7 +70,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="dropdown dropdown-end">
+          // todo fix it
+          <div className="dropdown dropdown-bottom dropdown-left">
             <label
               tabIndex={0}
               className=" m-1"
@@ -73,7 +79,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt=""
-                className="w-14 rounded-full cursor-pointer"
+                className="w-14 rounded-full"
               />
             </label>
             <ul
@@ -84,12 +90,22 @@ const Navbar = () => {
                 <p>{user.displayName}</p>
               </li>
               <li>
-                <button className="btn btn-sm btn-primary">Logout</button>
+                <button
+                  className="btn btn-sm btn-primary"
+                  onClick={handleLogOut}
+                >
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
         ) : (
-          <Link className="btn btn-secondary shadow-md">Login</Link>
+          <Link
+            to="/login"
+            className="btn btn-secondary shadow-md"
+          >
+            Login
+          </Link>
         )}
       </div>
     </nav>
