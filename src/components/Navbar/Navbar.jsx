@@ -70,7 +70,6 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          // todo fix it
           <div className="dropdown dropdown-bottom dropdown-left">
             <label
               tabIndex={0}
