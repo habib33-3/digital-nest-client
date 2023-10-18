@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Apple",
+    "thumbnail": "https://i.ibb.co/RDDsd8F/apple-Banner.jpg",
+    "images": [
+      "https://i.ibb.co/gb1MyP3/apple-Slider1.jpg",
+      "https://i.ibb.co/s50tfZV/apple-Slider2.jpg",
+      "https://i.ibb.co/L6NDfM3/apple-Slider3.jpg"
+    ]
+  },
+
+  {
+    "id": 2,
+    "name": "Google",
+    "thumbnail": "https://i.ibb.co/qxqsZVm/google-Banner.jpg",
+    "images": [
+      "https://i.ibb.co/p1GLVwk/google-Slide1.jpg",
+      "https://i.ibb.co/WvRRvCZ/google-Slide3.jpg",
+      "https://i.ibb.co/x6WXqMY/google-Slide2.jpg"
+    ]
+  },
+
+  {
+    "id": 3,
+    "name": "Sony",
+    "thumbnail": "https://i.ibb.co/QjGLtX5/sony-Banner.jpg",
+    "images": [
+      "https://i.ibb.co/2s2cLn6/sony-Slide2.jpg",
+      "https://i.ibb.co/jk8pbW6/sony-Slide1.jpg",
+      "https://i.ibb.co/HDrcT5W/sony-Slide3.jpg"
+    ]
+  },
+
+  {
+    "id": 4,
+    "name": "Samsung",
+    "thumbnail": "https://i.ibb.co/m0VS71b/samsung-Banner.jpg",
+    "images": [
+      "https://i.ibb.co/7NH0S54/samsung-Slide1.jpg",
+      "https://i.ibb.co/xgVfx4x/samsung-Slide3.jpg",
+      "https://i.ibb.co/fpKPSy4/samsung-Slide2.jpg"
+    ]
+  },
+
+  {
+    "id": 5,
+    "name": "Intel",
+    "thumbnail": "https://i.ibb.co/FkpgfXq/intel-Banner.jpg",
+    "images": [
+      "https://i.ibb.co/C2sYvHg/intel-Slide1.jpg",
+      "https://i.ibb.co/dp0KTky/intel-Slide3.jpg",
+      "https://i.ibb.co/KWV4vX2/intel-Slide2.jpg"
+    ]
+  },
+
+  {
+    "id": 6,
+    "name": "Gigabyte",
+    "thumbnail": "https://i.ibb.co/Vpzb4bd/gigabyte-Banner.jpg",
+    "images": [
+      "https://i.ibb.co/wBxnxMC/gigabyte-Slide1.jpg",
+      "https://i.ibb.co/mCWVQ4n/gigabyte-Slide3.jpg",
+      "https://i.ibb.co/ZBd7fd0/gigabyte-Slide2.jpg"
+    ]
+  }
+]
