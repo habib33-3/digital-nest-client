@@ -8,6 +8,7 @@ import Brand from "../pages/Brand/Brand";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import Details from "../pages/Details/Details";
 import Cart from "../pages/Cart/Cart";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -38,12 +39,20 @@ const router = createBrowserRouter([
 
       {
         path: "/addProduct",
-        element: <AddProduct />,
+        element: (
+          <PrivateRouter>
+            <AddProduct />
+          </PrivateRouter>
+        ),
       },
 
       {
         path: "/cart/:userId",
-        element: <Cart />,
+        element: (
+          <PrivateRouter>
+            <Cart />
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://digital-nest-backend.vercel.app/cart/${params.userId}`
@@ -52,7 +61,11 @@ const router = createBrowserRouter([
 
       {
         path: "/product/:id",
-        element: <Details />,
+        element: (
+          <PrivateRouter>
+            <Details />
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`https://digital-nest-backend.vercel.app/product/${params.id}`),
       },

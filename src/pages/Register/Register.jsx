@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import Social from "../../components/Social/Social";
@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const { createUser, updateInfo } = useAuth();
 
@@ -33,6 +34,7 @@ const Register = () => {
             console.log(err.message);
           });
         toast.success("Congrats, You are registered");
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message);

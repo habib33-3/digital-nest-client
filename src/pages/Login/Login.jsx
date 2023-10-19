@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Social from "../../components/Social/Social";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const { logInUser } = useAuth();
 
@@ -21,6 +22,7 @@ const Login = () => {
       .then((res) => {
         console.log(res.user);
         toast.success("Congrats,you are logged in");
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message);
