@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -50,7 +50,9 @@ const Brand = () => {
                     <h1 className="mb-5 text-5xl font-bold">
                       Get Your Best Deal
                     </h1>
-                    <button className="btn btn-primary">Shop Now</button>
+                    <Link to="/">
+                      <button className="btn btn-primary">Shop Now</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -59,7 +61,22 @@ const Brand = () => {
         </Swiper>
       </div>
       <div>
-        <Products products={products} />
+        {products.length > 0 ? (
+          <Products products={products} />
+        ) : (
+          <div className="flex flex-col justify-center items-center my-5 bg-sky-300 p-8">
+            <img
+              src="https://i.ibb.co/fF37G09/no-Product.jpg"
+              alt=""
+              className="w-96 rounded-lg"
+            />
+            <Link to="/">
+              <button className="btn btn-primary mt-5">
+                Browse other Brand
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import ErrorPage from "../providers/ErrorPage";
 import Brand from "../pages/Brand/Brand";
 import AddProduct from "../pages/AddProduct/AddProduct";
+import Details from "../pages/Details/Details";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,13 @@ const router = createBrowserRouter([
       {
         path: "/addProduct",
         element: <AddProduct />,
+      },
+
+      {
+        path: "/product/:id",
+        element: <Details />,
+        loader: ({ params }) =>
+          fetch(`https://digital-nest-backend.vercel.app/product/${params.id}`),
       },
     ],
   },

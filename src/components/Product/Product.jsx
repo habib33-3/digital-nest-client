@@ -1,8 +1,10 @@
 import { Rating } from "@smastrom/react-rating";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   const {
+    _id,
     productImg,
     productName,
     brandName,
@@ -33,7 +35,9 @@ const Product = ({ product }) => {
       <p className="text-5xl font-bold text-gray-500">Price: {productPrice}$</p>
       <div className="flex-end flex justify-between items-center">
         <div>
-          <button className="btn btn-success">Details</button>
+          <Link to={`/product/${_id}`}>
+            <button className="btn btn-success">Details</button>
+          </Link>
         </div>
         <div>
           <button className="btn btn-primary">Update</button>
