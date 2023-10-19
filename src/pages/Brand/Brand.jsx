@@ -32,7 +32,7 @@ const Brand = () => {
               <div
                 className="hero h-72"
                 style={{
-                  backgroundImage: `url(${image})`,
+                  backgroundImage: `url("${image}")`,
                 }}
               >
                 <div className="hero-overlay bg-opacity-60"></div>
