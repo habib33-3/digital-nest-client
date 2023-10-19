@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Apple",
+    "brand_name": "Apple",
     "thumbnail": "https://i.ibb.co/RDDsd8F/apple-Banner.jpg",
     "images": [
       "https://i.ibb.co/gb1MyP3/apple-Slider1.jpg",
@@ -12,7 +12,7 @@
 
   {
     "id": 2,
-    "name": "Google",
+    "brand_name": "Google",
     "thumbnail": "https://i.ibb.co/qxqsZVm/google-Banner.jpg",
     "images": [
       "https://i.ibb.co/p1GLVwk/google-Slide1.jpg",
@@ -23,7 +23,7 @@
 
   {
     "id": 3,
-    "name": "Sony",
+    "brand_name": "Sony",
     "thumbnail": "https://i.ibb.co/QjGLtX5/sony-Banner.jpg",
     "images": [
       "https://i.ibb.co/2s2cLn6/sony-Slide2.jpg",
@@ -34,7 +34,7 @@
 
   {
     "id": 4,
-    "name": "Samsung",
+    "brand_name": "Samsung",
     "thumbnail": "https://i.ibb.co/m0VS71b/samsung-Banner.jpg",
     "images": [
       "https://i.ibb.co/7NH0S54/samsung-Slide1.jpg",
@@ -45,7 +45,7 @@
 
   {
     "id": 5,
-    "name": "Intel",
+    "brand_name": "Intel",
     "thumbnail": "https://i.ibb.co/FkpgfXq/intel-Banner.jpg",
     "images": [
       "https://i.ibb.co/C2sYvHg/intel-Slide1.jpg",
@@ -56,7 +56,7 @@
 
   {
     "id": 6,
-    "name": "Gigabyte",
+    "brand_name": "Gigabyte",
     "thumbnail": "https://i.ibb.co/Vpzb4bd/gigabyte-Banner.jpg",
     "images": [
       "https://i.ibb.co/wBxnxMC/gigabyte-Slide1.jpg",
