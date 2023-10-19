@@ -3,15 +3,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
+import Products from "../../components/Products/Products";
 
 const Brand = () => {
+  const [products, setProducts] = useState([]);
   const brands = useLoaderData();
 
-  const { id } = useParams();
+  const { brandName } = useParams();
 
-  const brand = brands.find((data) => data.id == id);
+  const brand = brands.find((data) => data.brand_name == brandName);
 
   const { brand_name, images } = brand;
+
+  useEffect(() => {
+    fetch(`https://digital-nest-backend.vercel.app/products/${brandName}`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [brandName]);
 
   return (
     <div className="max-w-7xl mx-auto my-10">
@@ -48,6 +57,9 @@ const Brand = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div>
+        <Products products={products} />
       </div>
     </div>
   );

@@ -39,6 +39,8 @@ const AddProduct = () => {
         console.log(data);
         if (data.insertedId) {
           toast.success("Product Added");
+          form.reset();
+          setRating(0);
         }
       });
   };
@@ -81,6 +83,7 @@ const AddProduct = () => {
               className="select select-success w-full max-w-xs"
               required
               name="brandName"
+              defaultValue={null}
             >
               <option disabled>Brand Name</option>
               <option>Apple</option>

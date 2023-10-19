@@ -7,7 +7,7 @@ const BrandCard = ({ brand }) => {
 
   return (
     <div>
-      <Link to={`/brand/${id}`}>
+      <Link to={`/brand/${brand_name}`}>
         <div>
           <div
             className="hero card shadow-xl"
