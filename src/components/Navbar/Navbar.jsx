@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  console.log(user.uid);
 
   const navLinks = (
     <>
@@ -26,7 +27,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/cart"
+          to={`/cart/${user.uid}`}
           className="text-blue-600 hover:text-blue-800 bg-green-100 hover:bg-green-200 px-3 py-2 rounded-md"
         >
           My Cart

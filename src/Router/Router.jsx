@@ -7,6 +7,7 @@ import ErrorPage from "../providers/ErrorPage";
 import Brand from "../pages/Brand/Brand";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import Details from "../pages/Details/Details";
+import Cart from "../pages/Cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,15 @@ const router = createBrowserRouter([
       {
         path: "/addProduct",
         element: <AddProduct />,
+      },
+
+      {
+        path: "/cart/:userId",
+        element: <Cart />,
+        loader: ({ params }) =>
+          fetch(
+            `https://digital-nest-backend.vercel.app/cart/${params.userId}`
+          ),
       },
 
       {

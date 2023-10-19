@@ -1,11 +1,13 @@
 import { Rating } from "@smastrom/react-rating";
 import { useLoaderData } from "react-router-dom";
 import { CiShoppingCart } from "react-icons/ci";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Details = () => {
+  const { user } = useAuth();
   const details = useLoaderData();
 
-  console.log(details);
   const {
     productImg,
     productName,
@@ -15,7 +17,32 @@ const Details = () => {
     productDescription,
     rating,
   } = details[0];
-  console.log(rating);
+
+  const handleAddToCart = () => {
+    const newCart = {
+      userId: user.uid,
+      productImg,
+      productType,
+      productName,
+      productPrice,
+    };
+    console.log(newCart);
+
+    fetch("https://digital-nest-backend.vercel.app/cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCart),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          toast.success("Product Added To the Cart");
+        }
+      });
+  };
 
   return (
     <div className="max-w-7xl mx-auto bg-blue-300 my-10 rounded-2xl flex flex-col p-5">
@@ -44,7 +71,10 @@ const Details = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center">
-        <button className="btn btn-secondary text-xl font-semibold mx-auto my-5">
+        <button
+          className="btn btn-secondary text-xl font-semibold mx-auto my-5"
+          onClick={handleAddToCart}
+        >
           Add to <CiShoppingCart className="text-2xl" />
         </button>
       </div>
