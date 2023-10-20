@@ -15,7 +15,6 @@ const UpdateProduct = () => {
     rating,
   } = product[0];
 
-
   const [newRating, setNewRating] = useState(rating);
 
   const handleUpdate = (e) => {
@@ -37,8 +36,7 @@ const UpdateProduct = () => {
       rating: newRating,
     };
 
- 
-    fetch(`http://localhost:5000/product/${_id}`, {
+    fetch(`https://digital-nest-backend.vercel.app/product/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
