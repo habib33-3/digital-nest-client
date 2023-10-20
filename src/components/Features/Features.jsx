@@ -1,4 +1,3 @@
-import { Code, Copy, Heart } from "lucide-react";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { FcCustomerSupport } from "react-icons/fc";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
