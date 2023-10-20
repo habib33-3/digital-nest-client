@@ -9,6 +9,7 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import Details from "../pages/Details/Details";
 import Cart from "../pages/Cart/Cart";
 import PrivateRouter from "./PrivateRouter";
+import UpdateProduct from "../pages/Update/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,17 @@ const router = createBrowserRouter([
         element: (
           <PrivateRouter>
             <Details />
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://digital-nest-backend.vercel.app/product/${params.id}`),
+      },
+
+      {
+        path: "/updateProduct/:id",
+        element: (
+          <PrivateRouter>
+            <UpdateProduct />
           </PrivateRouter>
         ),
         loader: ({ params }) =>

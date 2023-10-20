@@ -1,11 +1,24 @@
 import { Rating } from "@smastrom/react-rating";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 
-const AddProduct = () => {
-  const [rating, setRating] = useState(0);
+const UpdateProduct = () => {
+  const product = useLoaderData();
+  const {
+    _id,
+    productImg,
+    productName,
+    brandName,
+    productType,
+    productPrice,
+    rating,
+  } = product[0];
 
-  const handleAddProduct = (e) => {
+
+  const [newRating, setNewRating] = useState(rating);
+
+  const handleUpdate = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -14,33 +27,29 @@ const AddProduct = () => {
     const brandName = form.brandName.value;
     const productType = form.productType.value;
     const productPrice = form.productPrice.value;
-    const productDescription = form.productDescription.value;
 
-    const product = {
+    const updatedProduct = {
       productImg,
       productName,
       brandName,
       productType,
       productPrice,
-      productDescription,
-      rating,
+      rating: newRating,
     };
 
-    // console.log(product);
-    fetch("https://digital-nest-backend.vercel.app/products", {
-      method: "POST",
+ 
+    fetch(`http://localhost:5000/product/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify(updatedProduct),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
-          toast.success("Product Added");
-          form.reset();
-          setRating(0);
+        if (data.modifiedCount) {
+          toast.success("Product Updated");
         }
       });
   };
@@ -48,13 +57,12 @@ const AddProduct = () => {
   return (
     <div className="max-w-7xl mx-auto my-10">
       <h1 className="text-6xl font-bold mb-5 text-purple-600 text-center">
-        Add Product
+        Update Product
       </h1>
       <div className="w-full lg:w-2/5 mx-auto">
         <form
-          action=""
+          onSubmit={handleUpdate}
           className="space-y-4"
-          onSubmit={handleAddProduct}
         >
           <div className="form-control">
             <label className="label">
@@ -66,6 +74,7 @@ const AddProduct = () => {
               className="input input-bordered"
               required
               name="productImg"
+              defaultValue={productImg}
             />
           </div>
           <div className="form-control">
@@ -78,6 +87,7 @@ const AddProduct = () => {
               className="input input-bordered"
               required
               name="productName"
+              defaultValue={productName}
             />
           </div>
           <div>
@@ -85,7 +95,7 @@ const AddProduct = () => {
               className="select select-success w-full max-w-xs"
               required
               name="brandName"
-              defaultValue={null}
+              defaultValue={brandName}
             >
               <option disabled>Brand Name</option>
               <option>Apple</option>
@@ -106,6 +116,7 @@ const AddProduct = () => {
               className="input input-bordered"
               required
               name="productType"
+              defaultValue={productType}
             />
           </div>
           <div className="form-control">
@@ -118,24 +129,15 @@ const AddProduct = () => {
               className="input input-bordered"
               required
               name="productPrice"
+              defaultValue={productPrice}
             />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Products Description</span>
-            </label>
-            <textarea
-              className="textarea textarea-bordered h-24"
-              placeholder="Short Description"
-              name="productDescription"
-            ></textarea>
           </div>
           <div className="border p-2">
             <span className="label label-text text-2xl">Rating</span>
             <Rating
               style={{ maxWidth: 250 }}
-              value={rating}
-              onChange={setRating}
+              value={newRating}
+              onChange={setNewRating}
               isRequired
             />
           </div>
@@ -143,7 +145,7 @@ const AddProduct = () => {
             type="submit"
             className="btn btn-success w-full"
           >
-            Add Product
+            Update Product
           </button>
         </form>
       </div>
@@ -151,4 +153,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

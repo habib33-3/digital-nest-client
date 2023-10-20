@@ -1,7 +1,6 @@
 import { BiTrash } from "react-icons/bi";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
-import { data } from "autoprefixer";
 
 const CartCard = ({ product, products, setProducts }) => {
   const { _id, productImg, productType, productName, productPrice } = product;
@@ -22,9 +21,13 @@ const CartCard = ({ product, products, setProducts }) => {
           .then((res) => res.json)
           .then((data) => {
             console.log(data);
-            const remaining = products.filter((product) => product._id !== _id);
-            setProducts(remaining);
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            if (data.deletedCount > 0) {
+              const remaining = products.filter(
+                (product) => product._id !== _id
+              );
+              setProducts(remaining);
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
           });
       }
     });
