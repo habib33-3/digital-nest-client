@@ -23,7 +23,11 @@ const Cart = () => {
               key={product.id}
               className="flex flex-col py-6 sm:flex-row sm:justify-between"
             >
-              <CartCard product={product} />
+              <CartCard
+                product={product}
+                products={products}
+                setProducts={setProducts}
+              />
             </li>
           ))}
         </ul>
