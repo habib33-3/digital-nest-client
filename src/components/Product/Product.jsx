@@ -15,34 +15,53 @@ const Product = ({ product }) => {
   } = product;
 
   return (
-    <div className="card flex flex-col justify-between p-5 w-full h-[600px] space-y-3  lg:w-96 mx-auto bg-gray-100 pb-10">
-      <img
-        src={productImg}
-        alt={productName}
-        className="w-11/12 mx-auto"
-      />
-      <div>
-        <h1 className="text-blue-600 text-2xl font-medium">{productName}</h1>
-        <h2 className="text-xl text-blue-600/70"> Brand: {brandName}</h2>
-        <h3 className="text-lg text-blue-600/60"> Type: {productType}</h3>
-        <p className="text-gray-700 text-justify ">{productDescription} </p>
+    <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+        <img
+          className="object-cover"
+          src={productImg}
+          alt="product image"
+        />
       </div>
-      <Rating
-        value={rating}
-        isDisabled
-        style={{ maxWidth: "200px" }}
-      ></Rating>
-      <p className="text-5xl font-bold text-gray-500">Price: {productPrice}$</p>
-      <div className="flex-end flex justify-between items-center">
+      <div className="mt-4 px-5 pb-5">
         <div>
-          <Link to={`/product/${_id}`}>
-            <button className="btn btn-success">Details</button>
-          </Link>
+          <h4 className="text-md font-medium">{brandName}</h4>
+          <h5 className="text-xl tracking-tight text-slate-900">
+            {productName}
+          </h5>
+          <p className="text-sm">{productType}</p>
         </div>
         <div>
-          <Link to={`/updateProduct/${_id}`}>
-            <button className="btn btn-primary">Update</button>
-          </Link>
+          <p className="text-justify text-gray-800">{productDescription}</p>
+        </div>
+        <div className="mt-2 mb-5 flex items-center justify-between">
+          <p>
+            <span className="text-3xl font-bold text-slate-900">
+              ${productPrice}
+            </span>
+          </p>
+          <div className="flex items-center">
+            <Rating
+              value={rating}
+              isDisabled
+              style={{ width: "100px" }}
+            ></Rating>
+            <span className="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">
+              {rating}
+            </span>
+          </div>
+        </div>
+        <div className="flex-end flex justify-between items-center">
+          <div>
+            <Link to={`/product/${_id}`}>
+              <button className="btn btn-success">Details</button>
+            </Link>
+          </div>
+          <div>
+            <Link to={`/updateProduct/${_id}`}>
+              <button className="btn btn-primary">Update</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
