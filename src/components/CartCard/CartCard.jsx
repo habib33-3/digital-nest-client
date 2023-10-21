@@ -34,7 +34,7 @@ const CartCard = ({ product, products, setProducts }) => {
   };
 
   return (
-    <div>
+    <div className="bg-primary px-2 py-5 rounded-sm">
       <div className="flex w-full space-x-2 sm:space-x-4">
         <img
           className="h-20 w-20 flex-shrink-0 rounded object-contain outline-none dark:border-transparent sm:h-32 sm:w-32"

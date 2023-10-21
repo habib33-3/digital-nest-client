@@ -15,7 +15,7 @@ const Product = ({ product }) => {
   } = product;
 
   return (
-    <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+    <div className="relative m-10 flex w-full  lg:w-96 flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
       <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
         <img
           className="object-cover"
@@ -25,18 +25,20 @@ const Product = ({ product }) => {
       </div>
       <div className="mt-4 px-5 pb-5">
         <div>
-          <h4 className="text-md font-medium">{brandName}</h4>
-          <h5 className="text-xl tracking-tight text-slate-900">
+          <h4 className="text-md font-medium text-primary">
+            Brand: {brandName}
+          </h4>
+          <h5 className="text-xl tracking-tight text-secondary">
             {productName}
           </h5>
           <p className="text-sm">{productType}</p>
         </div>
         <div>
-          <p className="text-justify text-gray-800">{productDescription}</p>
+          <p className="text-justify text-neutral">{productDescription}</p>
         </div>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
-            <span className="text-3xl font-bold text-slate-900">
+            <span className="text-3xl font-bold text-accent">
               ${productPrice}
             </span>
           </p>
@@ -46,7 +48,7 @@ const Product = ({ product }) => {
               isDisabled
               style={{ width: "100px" }}
             ></Rating>
-            <span className="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">
+            <span className="mr-2 ml-3 rounded bg-info px-2.5 py-0.5 text-xs text-info-content font-semibold">
               {rating}
             </span>
           </div>

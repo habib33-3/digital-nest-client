@@ -45,45 +45,45 @@ const Details = () => {
   };
 
   return (
-    <div className="overflow-hidden">
-      <div className="mx-auto max-w-5xl px-5 py-24 ">
-        <div className="mx-auto flex flex-wrap items-center bg-sky-200 p-6 rounded-xl lg:w-4/5">
-          <img
-            alt={productName}
-            className="h-64 w-full rounded object-cover lg:h-96 rounded-md lg:w-1/2"
-            src={productImg}
-          />
-          <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:pl-10">
-            <h2 className="text-sm font-semibold tracking-widest text-gray-500">
-              {brandName}
-            </h2>
-            <h1 className="my-4 text-3xl font-semibold text-black">
-              {productName}
-            </h1>
-            <p>{productType}</p>
-            <div className="my-4 flex items-center">
-              <span className="flex items-center space-x-1">
-                <Rating
-                  value={rating}
-                  isDisabled
-                  style={{ width: "100px" }}
-                ></Rating>
-              </span>
-            </div>
-            <p className="leading-relaxed">{productDescription}</p>
+    <div className="mx-auto max-w-5xl px-5 py-24">
+      <div className="mx-auto flex flex-wrap items-center bg-neutral p-6 rounded-xl lg:w-4/5">
+        <img
+          alt={productName}
+          className="h-64 w-full object-cover lg:h-96 rounded-md lg:w-1/2"
+          src={productImg}
+        />
+        <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:pl-10">
+          <h2 className="text-sm font-semibold tracking-widest text-primary">
+            {brandName}
+          </h2>
+          <h1 className="my-4 text-3xl font-semibold text-neutral-content">
+            {productName}
+          </h1>
+          <p className="text-gray-300">{productType}</p>
+          <div className="my-4 flex items-center">
+            <span className="flex items-center space-x-1">
+              <Rating
+                value={rating}
+                isDisabled
+                style={{ width: "100px" }}
+              ></Rating>
+            </span>
+          </div>
+          <p className="leading-relaxed text-neutral-content">
+            {productDescription}
+          </p>
 
-            <div className="flex items-center justify-between">
-              <span className="title-font text-xl font-bold text-gray-900">
-                $ {productPrice}
-              </span>
-              <div className="flex flex-col justify-center items-center">
-                <button
-                  className="btn btn-secondary text-xl font-semibold mx-auto my-5"
-                  onClick={handleAddToCart}
-                >
-                  Add to <CiShoppingCart className="text-2xl" />
-                </button>
-              </div>
+          <div className="flex items-center justify-between">
+            <span className="title-font text-xl font-bold text-neutral-content">
+              $ {productPrice}
+            </span>
+            <div className="flex flex-col justify-center items-center">
+              <button
+                className="btn btn-primary text-xl font-semibold mx-auto my-5"
+                onClick={handleAddToCart}
+              >
+                Add to <CiShoppingCart className="text-2xl" />
+              </button>
             </div>
           </div>
         </div>
