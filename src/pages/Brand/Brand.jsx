@@ -50,7 +50,7 @@ const Brand = () => {
                     <h1 className="mb-5 text-5xl font-bold">
                       Get Your Best Deal
                     </h1>
-                    <Link to="/">
+                    <Link>
                       <button className="btn btn-primary">Shop Now</button>
                     </Link>
                   </div>

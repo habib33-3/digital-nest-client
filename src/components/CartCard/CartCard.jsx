@@ -18,7 +18,7 @@ const CartCard = ({ product, products, setProducts }) => {
         fetch(`https://digital-nest-backend.vercel.app/carts/${_id}`, {
           method: "DELETE",
         })
-          .then((res) => res.json)
+          .then((res) => res.json())
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
