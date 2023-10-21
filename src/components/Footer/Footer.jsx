@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden py-10 light-mode:bg-white dark-mode:bg-gray-800 light-mode:text-gray-900 dark-mode:text-gray-100">
+    <footer className="relative overflow-hidden py-10 bg-gray-900 text-white">
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="-m-6 flex flex-wrap">
           <div className="w-full p-6 md:w-1/2 lg:w-5/12">
@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
           <div className="w-full p-6 md:w-1/2 lg:w-2/12">
             <div className="h-full">
-              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase text-gray-500">
+              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase">
                 Shop
               </h3>
               <ul>
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
           <div className="w-full p-6 md:w-1/2 lg:w-2/12">
             <div className="h-full">
-              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase text-gray-500">
+              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase">
                 Support
               </h3>
               <ul>
@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
           <div className="w-full p-6 md:w-1/2 lg:w-3/12">
             <div className="h-full">
-              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase text-gray-500">
+              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase">
                 Legal
               </h3>
               <ul>

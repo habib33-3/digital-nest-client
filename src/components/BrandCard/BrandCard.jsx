@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
-
 import { Link } from "react-router-dom";
 
 const BrandCard = ({ brand }) => {
-  const { id, thumbnail, brand_name } = brand;
+  const { thumbnail, brand_name } = brand;
 
   return (
     <div>

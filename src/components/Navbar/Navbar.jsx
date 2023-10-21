@@ -12,7 +12,7 @@ const Navbar = ({ setTheme }) => {
       <li>
         <NavLink
           to="/"
-          className="text-blue-600 hover:text-blue-800 bg-green-100 hover:bg-green-200 px-3 py-2 rounded-md"
+          className="text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md"
         >
           Home
         </NavLink>
@@ -21,7 +21,7 @@ const Navbar = ({ setTheme }) => {
       <li>
         <NavLink
           to="/addProduct"
-          className="text-blue-600 hover:text-blue-800 bg-green-100 hover:bg-green-200 px-3 py-2 rounded-md"
+          className="text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md"
         >
           Add Product
         </NavLink>
@@ -29,7 +29,7 @@ const Navbar = ({ setTheme }) => {
       <li>
         <NavLink
           to={user ? `/cart/${user?.uid}` : "/login"}
-          className="text-blue-600 hover:text-blue-800 bg-green-100 hover:bg-green-200 px-3 py-2 rounded-md"
+          className="text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md"
         >
           My Cart
         </NavLink>
@@ -50,7 +50,7 @@ const Navbar = ({ setTheme }) => {
   };
 
   return (
-    <nav className="navbar max-w-7xl mx-auto mt-2 bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl shadow-lg py-3 px-2">
+    <nav className="navbar max-w-7xl mx-auto mt-2 bg-gradient-to-r from-accent to-accent-focus rounded-xl shadow-lg py-3 px-2">
       <div className="navbar-start">
         <div className="dropdown">
           <label
@@ -61,18 +61,18 @@ const Navbar = ({ setTheme }) => {
           </label>
           <ul
             tabIndex={0}
-            className="menu-sm dropdown-content mt-3 z-[10] p-2 shadow-md bg-gray-100 rounded-box w-52"
+            className="menu-sm dropdown-content mt-3 z-[10] p-2 shadow-md bg-base-100 rounded-box w-52"
           >
             {navLinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost capitalize text-2xl  text-blue-600">
+        <Link className="btn btn-ghost capitalize text-2xl text-content">
           <img
             src="https://i.ibb.co/94x4wKS/logo.jpg"
             alt=""
             className="w-14 rounded-full"
           />
-          <h1>DigitalNest</h1>
+          <h1 className="">DigitalNest</h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -93,7 +93,7 @@ const Navbar = ({ setTheme }) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
-              <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+              <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34ZM12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5ZM0,12a10,10,0,0,1,19.31-5.34A1,1,0,0,0,18,5.66a1,1,0,0,0,.81,1.54A8,8,0,0,0,16,13.91,8,8,0,0,0,9.41,17.82,1,1,0,0,0,8.89,18A1,1,0,0,0,9.06,16.74,10,10,0,0,1,0,12Z" />
             </svg>
 
             {/* moon icon */}
