@@ -10,31 +10,25 @@ const Product = ({ product }) => {
     brandName,
     productType,
     productPrice,
-    productDescription,
     rating,
   } = product;
 
   return (
-    <div className="relative m-10 flex w-full  lg:w-96 flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+    <div className="relative m-10 flex w-full h-[500px]  lg:w-96 flex-col overflow-hidden rounded-lg border border-gray-100 bg-stone-100 shadow-md">
+      <div className="relative mx-3 mt-3 flex pt-3  h-60 overflow-hidden rounded-xl">
         <img
-          className="object-cover"
+          className="object-contain w-11/12 mx-auto"
           src={productImg}
           alt="product image"
         />
       </div>
       <div className="mt-4 px-5 pb-5">
         <div>
-          <h4 className="text-md font-medium text-primary">
-            Brand: {brandName}
-          </h4>
+          <h4 className="text-md font-medium text-primary">{brandName}</h4>
           <h5 className="text-xl tracking-tight text-secondary">
             {productName}
           </h5>
-          <p className="text-sm">{productType}</p>
-        </div>
-        <div>
-          <p className="text-justify text-neutral">{productDescription}</p>
+          <p className="text-sm text-neutral">{productType}</p>
         </div>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>

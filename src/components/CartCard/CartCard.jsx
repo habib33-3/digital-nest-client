@@ -60,7 +60,7 @@ const CartCard = ({ product, products, setProducts }) => {
           <div className="flex divide-x text-sm">
             <button
               onClick={handleDeleteCart}
-              className="flex items-center space-x-2 px-2 py-1 pl-0"
+              className="btn btn-warning "
             >
               <BiTrash className="text-3xl font-bold" />
               <span>Remove</span>

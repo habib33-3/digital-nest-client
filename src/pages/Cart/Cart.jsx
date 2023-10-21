@@ -55,7 +55,7 @@ const Cart = () => {
       ) : (
         <div className="my-20 max-w-lg mx-auto flex flex-col gap-10 text-center text-primary-content">
           <h1 className="text-5xl font-bold">Your cart is empty</h1>
-          <Link>
+          <Link to="/">
             <button className="btn btn-primary w-32 mx-auto">Shop now</button>
           </Link>
         </div>
