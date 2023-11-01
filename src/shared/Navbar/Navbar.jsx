@@ -12,7 +12,15 @@ const Navbar = ({ setTheme }) => {
       <li>
         <NavLink
           to="/"
-          className="text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md"
+          className={`text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md ${({
+            isActive,
+            isPending,
+          }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "p-4 bg-accent content font-bold"
+              : ""}`}
         >
           Home
         </NavLink>
@@ -21,7 +29,15 @@ const Navbar = ({ setTheme }) => {
       <li>
         <NavLink
           to="/addProduct"
-          className="text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md"
+          className={`text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md ${({
+            isActive,
+            isPending,
+          }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "p-4 bg-accent content font-bold"
+              : ""}`}
         >
           Add Product
         </NavLink>
@@ -29,7 +45,15 @@ const Navbar = ({ setTheme }) => {
       <li>
         <NavLink
           to={user ? `/cart/${user?.uid}` : "/login"}
-          className="text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md"
+          className={`text-neutral hover:text-error bg-info hover:bg-base-100 px-3 py-2 rounded-md ${({
+            isActive,
+            isPending,
+          }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "p-4 bg-accent content font-bold"
+              : ""}`}
         >
           My Cart
         </NavLink>

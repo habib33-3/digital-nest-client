@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
-
 import { useState } from "react";
-import CartCard from "../../components/CartCard/CartCard";
+import CartCard from "./components/CartCard/CartCard";
 import toast from "react-hot-toast";
 
 const Cart = () => {

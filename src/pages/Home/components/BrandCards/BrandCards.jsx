@@ -1,5 +1,5 @@
-import BrandCard from "../BrandCard/BrandCard";
 import PropTypes from "prop-types";
+import BrandCard from "./BrandCard/BrandCard";
 
 const BrandCards = ({ brands }) => {
   return (

@@ -1,7 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
 import { useEffect, useState } from "react";
+import Navbar from "../shared/Navbar/Navbar";
 
 const Root = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
