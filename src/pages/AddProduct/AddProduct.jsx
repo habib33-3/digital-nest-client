@@ -1,9 +1,11 @@
 import { Rating } from "@smastrom/react-rating";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AddProduct = () => {
   const [rating, setRating] = useState(0);
+  const axiosSecure = useAxiosSecure();
 
   const handleAddProduct = (e) => {
     e.preventDefault();
@@ -27,22 +29,32 @@ const AddProduct = () => {
     };
 
     // console.log(product);
-    fetch("https://digital-nest-backend.vercel.app/products", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(product),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          toast.success("Product Added");
-          form.reset();
-          setRating(0);
-        }
-      });
+    // fetch("https://digital-nest-backend.vercel.app/products", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(product),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.insertedId) {
+    //       toast.success("Product Added");
+    //       form.reset();
+    //       setRating(0);
+    //     }
+    //   });
+
+    axiosSecure.post("/products", product).then((data) => {
+      console.log(data);
+      if (data.data.insertedId) {
+        console.log(data)
+        toast.success("Product Added");
+        form.reset();
+        setRating(0);
+      }
+    });
   };
 
   return (

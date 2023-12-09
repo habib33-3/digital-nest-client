@@ -1,9 +1,11 @@
 import { BiTrash } from "react-icons/bi";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const CartCard = ({ product, products, setProducts }) => {
   const { _id, productImg, productType, productName, productPrice } = product;
+  const axiosSecure = useAxiosSecure();
 
   const handleDeleteCart = () => {
     Swal.fire({
@@ -15,20 +17,27 @@ const CartCard = ({ product, products, setProducts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://digital-nest-backend.vercel.app/carts/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.deletedCount > 0) {
-              const remaining = products.filter(
-                (product) => product._id !== _id
-              );
-              setProducts(remaining);
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
-          });
+        // fetch(`https://digital-nest-backend.vercel.app/carts/${_id}`, {
+        //   method: "DELETE",
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     console.log(data);
+        //     if (data.deletedCount > 0) {
+        //       const remaining = products.filter(
+        //         (product) => product._id !== _id
+        //       );
+        //       setProducts(remaining);
+        //       Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        //     }
+        //   });
+        axiosSecure.delete(`/carts/${_id}`).then((data) => {
+          if (data.data.deletedCount) {
+            const remaining = products.filter((product) => product._id !== _id);
+            setProducts(remaining);
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
       }
     });
   };

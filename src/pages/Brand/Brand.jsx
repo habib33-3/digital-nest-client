@@ -4,10 +4,12 @@ import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import Products from "./components/Products/Products";
 import Slider from "./components/Slider/Slider";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Brand = () => {
   const [products, setProducts] = useState([]);
   const brands = useLoaderData();
+  const axiosSecure = useAxiosSecure();
 
   const { brandName } = useParams();
 
@@ -15,11 +17,19 @@ const Brand = () => {
 
   const { brand_name, images } = brand;
 
+  // useEffect(() => {
+  //   fetch(`https://digital-nest-backend.vercel.app/products/${brandName}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, [brandName]);
+
   useEffect(() => {
-    fetch(`https://digital-nest-backend.vercel.app/products/${brandName}`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, [brandName]);
+    axiosSecure
+      .get(`/products/${brandName}`)
+      .then((data) => {
+        console.log(data)
+        setProducts(data.data)});
+  }, [axiosSecure, brandName]);
 
   return (
     <div className="max-w-7xl mx-auto my-10">

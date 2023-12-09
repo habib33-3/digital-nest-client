@@ -3,10 +3,12 @@ import { useLoaderData } from "react-router-dom";
 import { CiShoppingCart } from "react-icons/ci";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Details = () => {
   const { user } = useAuth();
   const details = useLoaderData();
+  const axiosSecure = useAxiosSecure();
 
   const {
     productImg,
@@ -28,20 +30,26 @@ const Details = () => {
     };
     console.log(newCart);
 
-    fetch("https://digital-nest-backend.vercel.app/cart", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newCart),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          toast.success("Product Added To the Cart");
-        }
-      });
+    // fetch("https://digital-nest-backend.vercel.app/cart", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(newCart),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.insertedId) {
+    //       toast.success("Product Added To the Cart");
+    //     }
+    //   });
+
+    axiosSecure.post(`/cart`, newCart).then((data) => {
+      if (data.data.insertedId) {
+        toast.success("Product Added To the Cart");
+      }
+    });
   };
 
   return (

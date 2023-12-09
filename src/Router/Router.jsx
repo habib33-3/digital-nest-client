@@ -10,6 +10,10 @@ import Details from "../pages/Details/Details";
 import Cart from "../pages/Cart/Cart";
 import PrivateRouter from "./PrivateRouter";
 import UpdateProduct from "../pages/Update/UpdateProduct";
+import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+
+// const axiosSecure = useAxiosSecure();
 
 const router = createBrowserRouter([
   {
@@ -20,7 +24,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("/brands.json"),
+        // loader: () => fetch("/brands.json"),
+        // loader: () => useAxiosSecure.get("/brands"),
+        loader: () => fetch("http://localhost:5000/brands"),
       },
 
       {
@@ -36,7 +42,8 @@ const router = createBrowserRouter([
       {
         path: "/brand/:brandName",
         element: <Brand />,
-        loader: () => fetch("/brands.json"),
+        // loader: () => fetch("/brands.json"),
+        loader: () => useAxiosSecure.get("/brands.json"),
       },
 
       {
@@ -55,10 +62,12 @@ const router = createBrowserRouter([
             <Cart />
           </PrivateRouter>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `https://digital-nest-backend.vercel.app/cart/${params.userId}`
-          ),
+        // loader: ({ params }) =>
+        //   axios.get(
+        //     `https://digital-nest-backend.vercel.app/cart/${params.userId}`
+        //   ),
+        // loader: ({ params }) => useAxiosSecure.get(`/cart/${params.userId}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.userId}`),
       },
 
       {
@@ -68,8 +77,12 @@ const router = createBrowserRouter([
             <Details />
           </PrivateRouter>
         ),
+        //   loader: ({ params }) =>
+        //     fetch(`https://digital-nest-backend.vercel.app/product/${params.id}`),
+        // },
+        // loader: ({ params }) => useAxiosSecure.get(`/product/${params.id}`),
         loader: ({ params }) =>
-          fetch(`https://digital-nest-backend.vercel.app/product/${params.id}`),
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
 
       {
@@ -79,8 +92,11 @@ const router = createBrowserRouter([
             <UpdateProduct />
           </PrivateRouter>
         ),
+        // loader: ({ params }) =>
+        //   fetch(`https://digital-nest-backend.vercel.app/product/${params.id}`),
+        // loader: ({ params }) => useAxiosSecure.get(`/product/${params.id}`),
         loader: ({ params }) =>
-          fetch(`https://digital-nest-backend.vercel.app/product/${params.id}`),
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
     ],
   },

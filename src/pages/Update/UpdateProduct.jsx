@@ -2,8 +2,10 @@ import { Rating } from "@smastrom/react-rating";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateProduct = () => {
+  const axiosSecure = useAxiosSecure();
   const product = useLoaderData();
   const {
     _id,
@@ -36,20 +38,26 @@ const UpdateProduct = () => {
       rating: newRating,
     };
 
-    fetch(`https://digital-nest-backend.vercel.app/product/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
-          toast.success("Product Updated");
-        }
-      });
+    // fetch(`https://digital-nest-backend.vercel.app/product/${_id}`, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(updatedProduct),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.modifiedCount) {
+    //       toast.success("Product Updated");
+    //     }
+    //   });
+
+    axiosSecure.put(`/product/${_id}`, updatedProduct).then((data) => {
+      if (data.data.modifiedCount) {
+        toast.success("Product Updated");
+      }
+    });
   };
 
   return (
