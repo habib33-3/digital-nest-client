@@ -1,9 +1,3 @@
----
-runme:
-  id: 01HH7DQD4MC7EW2VGE2J6M03NG
-  version: v2.0
----
-
 # DigitalNest
 
 ### [Live Link](https://digital-nest-7d4fd.web.app/)
