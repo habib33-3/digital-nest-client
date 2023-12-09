@@ -1,6 +1,21 @@
+---
+runme:
+  id: 01HH7DQD4MC7EW2VGE2J6M03NG
+  version: v2.0
+---
+
 # DigitalNest
 
-[https://digital-nest-7d4fd.web.app/]
+### [Live Link](https://digital-nest-7d4fd.web.app/)
+
+## Built with
+
+* Frontend: React js, TailwindCSS, DaisyUI
+* Backend: Express js
+* Database: MongoDB
+* Authentication: Firebase
+
+## [server code](https://github.com/habib33-3/digital-nest-server)
 
 ## Features
 
